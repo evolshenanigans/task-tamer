@@ -1,0 +1,25 @@
+<h1>Task Manager</h1>
+
+<form action="/add_task" method="post">
+  <input type="text" name="content" placeholder="Enter new task">
+  <button type="submit">Add Task</button>
+</form>
+
+<section id="current-tasks">
+  <h2>Current Tasks</h2>
+  <ul>
+    <% @tasks.each do |key, task| %>
+      <li><%= task['content'] %> <a href="/delete_task/<%= key %>">Delete</a></li>
+    <% end %>
+  </ul>
+</section>
+<% if @quote %>
+  <section id="quote">
+    <blockquote>
+      <%= @quote['content'] %>
+      <footer>- <%= @quote['author'] %></footer>
+    </blockquote>
+  </section>
+<% else %>
+  <p>Quote not available.</p>
+<% end %>

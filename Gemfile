@@ -5,14 +5,15 @@ ruby "3.2.1"
 
 gem "sinatra"
 gem "sinatra-contrib"
-
-# Use Puma as the app server
+gem "thin"
+gem 'activerecord'
+gem 'sinatra-activerecord'
+gem 'rake'
 gem "puma", "~> 5.0"
-
-# use active record
-gem "sinatra-activerecord"
+gem "httparty" 
 
 group :development do
+  gem 'sinatra-reloader'
   gem "better_errors"
   gem "binding_of_caller"
   gem "table_print"
@@ -22,7 +23,6 @@ end
 group :development, :test do
   gem "grade_runner"
   gem "pry"
-  gem "sqlite3", "~> 1.4"
 end
 
 group :test do
